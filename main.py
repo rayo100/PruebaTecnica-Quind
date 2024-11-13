@@ -1,13 +1,14 @@
+from pyspark.sql import SparkSession
 from src.logger import logger
 from src.etl import ETLProcess
-
 
 def main():
     """
     Función principal que gestiona el flujo de trabajo ETL.
     """
+
     # Definir la ruta al archivo Excel
-    file_path = 'data/Films2.xlsx'
+    file_path = r"data\Films_2.xlsx"
 
     # Crear una instancia de ETLProcess
     etl = ETLProcess(logger)
@@ -26,7 +27,6 @@ def main():
 
             # Cargar los datos
             etl.load_data(transformed_data)
-
 
 if __name__ == "__main__":
     main()
